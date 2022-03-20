@@ -21,6 +21,11 @@ import datetime
 import time
 #======python的函數庫==========
 
+#*****my ******************
+now_time = 0#time.ctime(time.time())
+mesg = "null"
+#***************************
+
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
@@ -28,6 +33,9 @@ line_bot_api = LineBotApi('uBMwvneIDSUwbILRpCR6HXEEE9OYnLjwFAWKn8oQKJEq21XzkDG1h
 # Channel Secret
 handler = WebhookHandler('61f940a9219aca48b8bcafa751c7561e')
 
+@app.route('/')
+def hello_world():
+    return "Hello, World!"
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
