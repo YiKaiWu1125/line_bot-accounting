@@ -31,7 +31,6 @@ line_bot_api = LineBotApi('uBMwvneIDSUwbILRpCR6HXEEE9OYnLjwFAWKn8oQKJEq21XzkDG1h
 handler = WebhookHandler('61f940a9219aca48b8bcafa751c7561e')
 
 # -----------------------------------
-import time
 now_time = 0#time.ctime(time.time())
 mesg = "null"
 #------------------------------------
