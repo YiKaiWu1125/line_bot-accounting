@@ -116,10 +116,10 @@ from flask import jsonify
 def getjson():
     global mesg
     global now_time
-    print("now time is :")
-    print(now_time)
-    print("\n and message is : ") 
-    print(mesg)
+    #print("now time is :")
+    #print(now_time)
+    #print("\n and message is : ") 
+    #print(mesg)
     json = {"time":now_time , "message":mesg}
     return jsonify(json)
 #----------------------------------------
