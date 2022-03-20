@@ -35,6 +35,8 @@ now_time = 0#time.ctime(time.time())
 mesg = "null"
 #------------------------------------
 
+
+
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -108,19 +110,22 @@ def welcome(event):
     message = TextSendMessage(text=f'{name}歡迎加入')
     line_bot_api.reply_message(event.reply_token, message)
         
+#@app.route('/')
+#def welcome():
+#    return "Hello, World!"
 
 #----------------------------------------
-#from flask import jsonify
-#@app.route('/getjson')
-#def getjson():
-#    global mesg
-#    global now_time
-#    #print("now time is :")
-#    #print(now_time)
-#    #print("\n and message is : ") 
-#    #print(mesg)
-#    json = {"time":now_time , "message":mesg}
-#    return jsonify(json)
+from flask import jsonify
+@app.route('/getjson')
+def getjson():
+    global mesg
+    global now_time
+    #print("now time is :")
+    #print(now_time)
+    #print("\n and message is : ") 
+    #print(mesg)
+    json = {"time":now_time , "message":mesg}
+    return jsonify(json)
 #----------------------------------------
 
 import os
