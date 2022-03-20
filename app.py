@@ -110,17 +110,17 @@ def welcome(event):
         
 
 #----------------------------------------
-from flask import jsonify
-@app.route('/getjson')
-def getjson():
-    global mesg
-    global now_time
-    #print("now time is :")
-    #print(now_time)
-    #print("\n and message is : ") 
-    #print(mesg)
-    json = {"time":now_time , "message":mesg}
-    return jsonify(json)
+#from flask import jsonify
+#@app.route('/getjson')
+#def getjson():
+#    global mesg
+#    global now_time
+#    #print("now time is :")
+#    #print(now_time)
+#    #print("\n and message is : ") 
+#    #print(mesg)
+#    json = {"time":now_time , "message":mesg}
+#    return jsonify(json)
 #----------------------------------------
 
 import os
