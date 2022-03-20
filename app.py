@@ -37,6 +37,18 @@ handler = WebhookHandler('61f940a9219aca48b8bcafa751c7561e')
 def hello_world():
     return "Hello, World!"
 
+from flask import jsonify
+@app.route('/getjson')
+def getjson():
+    global mesg
+    global now_time
+    #print("now time is :")
+    #print(now_time)
+    #print("\n and message is : ") 
+    #print(mesg)
+    json = {"time":now_time , "message":mesg}
+    return jsonify(json)
+
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -78,7 +90,10 @@ def handle_message(event):
     else:
         message = TextSendMessage(text=msg)
         line_bot_api.reply_message(event.reply_token, message)
-    
+    global mesg
+    global now_time
+    mesg = msg
+    now_time = time.ctime(time.time())
 
 @handler.add(PostbackEvent)
 def handle_message(event):
