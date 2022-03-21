@@ -24,6 +24,7 @@ import time
 #*****my ******************
 now_time = 0#time.ctime(time.time())
 mesg = "null"
+state = 0
 #***************************
 
 app = Flask(__name__)
@@ -90,8 +91,29 @@ def handle_message(event):
     #else:
     #    message = TextSendMessage(text=msg)
     #    line_bot_api.reply_message(event.reply_token, message)
-    it = "已收到:" + msg
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=it))
+    if state == 1:
+        state = 0
+        it = "您要記帳的項目:" + msg +"\n請輸入花費金額\nEX(888))"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=it))
+    elif '伙食' in msg:
+        state = 1
+        it = "您要記帳的類別:" + msg +"\n請輸入時間與花費項目\nEX(2022.03.33 晚餐)"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=it))
+    elif '零食' in msg:
+        state = 1
+        it = "您要記帳的類別:" + msg +"\n請輸入時間與花費項目\nEX(2022.03.33 晚餐)"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=it)
+    elif '飲料' in msg:
+        state = 1
+        it = "您要記帳的類別:" + msg +"\n請輸入時間與花費項目\nEX(2022.03.33 晚餐)"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=it))
+    elif '其他花費' in msg:
+        state = 1
+        it = "您要記帳的類別:" + msg +"\n請輸入時間與花費項目\nEX(2022.03.33 晚餐)"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=it))
+    else:
+        it = "已收到:" + msg +"\n請輸入要記帳的類別\n伙食、零食、飲料、其他花費"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=it))
     global mesg
     global now_time
     mesg = msg
