@@ -102,7 +102,8 @@ def handle_message(event):
     elif '零食' in msg:
         state = 1
         it = "您要記帳的類別:" + msg +"\n請輸入時間與花費項目\nEX(2022.03.33 晚餐)"
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=it)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=it))
+    
     elif '飲料' in msg:
         state = 1
         it = "您要記帳的類別:" + msg +"\n請輸入時間與花費項目\nEX(2022.03.33 晚餐)"
