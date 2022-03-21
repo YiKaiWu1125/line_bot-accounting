@@ -91,6 +91,7 @@ def handle_message(event):
     #else:
     #    message = TextSendMessage(text=msg)
     #    line_bot_api.reply_message(event.reply_token, message)
+    global state
     if state == 1:
         state = 0
         it = "您要記帳的項目:" + msg +"\n請輸入花費金額\nEX(888))"
